@@ -1,11 +1,8 @@
 import execa from "execa";
-import { dirname, resolve } from "path";
-import { fileURLToPath } from "url";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import { resolve } from "path";
 
 function roverBin() {
-  return resolve(__dirname, "../node_modules/.bin/rover");
+  return resolve(process.env.PWD, "./node_modules/.bin/rover");
 }
 
 /**
