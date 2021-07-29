@@ -39,6 +39,38 @@ export async function roverSubgraphFetch(graphRef, subgraph) {
 }
 
 /**
+ * @param {string} graphRef
+ * @param {string} subgraph
+ */
+ export async function roverSubgraphDelete(graphRef, subgraph) {
+  const proc = execa("node", [
+    roverBin(),
+    "subgraph",
+    "delete",
+    graphRef,
+    "--name",
+    subgraph,
+    "--confirm",
+  ]);
+
+  return (await proc).stdout;
+}
+
+/**
+ * @param {string} graphRef
+ */
+ export async function roverSubgraphList(graphRef) {
+  const proc = execa("node", [
+    roverBin(),
+    "subgraph",
+    "list",
+    graphRef
+  ]);
+
+  return (await proc).stdout;
+}
+
+/**
  * @param {{
  *  graphRef: string;
  *  name: string;
