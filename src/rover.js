@@ -154,6 +154,7 @@ export async function roverSubgraphPublish({
       roverBin(),
       "subgraph",
       "publish",
+      "--convert",
       graphRef,
       "--name",
       name,
